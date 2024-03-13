@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search bar with dropdown</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9bf81300c6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar">
+            <div id="select">
+                <p id="selectText">All categories</p>
+                <i class="fa-solid fa-square-caret-down"></i>
+                <ul>
+                    <li class="options">All categories</li>
+                    <li class="options">Electronics</li>
+                    <li class="options">Furnitures</li>
+                    <li class="options">Sports</li>
+                    <li class="options">Fashion</li>
+                </ul>
+            </div>
+            <input type="text" id="inputField" placeholder="Search...">
+        </div>
+    </div>
+
+    <script>
+        const select = document.querySelector('#select');
+        const selectText = document.querySelector('#selectText');
+        const options = document.querySelectorAll('.options');
+        const inputField = document.querySelector('#inputField');
+
+        options.forEach(option =>{
+            option.addEventListener("click", ()=>{
+                selectText.innerHTML = option.innerHTML;
+                inputField.placeholder = "Search In" + " " + selectText.innerHTML
+            })
+        })
+
+        select.addEventListener('click', () => {
+            select.querySelector('ul').classList.toggle('active');
+        })
+
+
+    </script>
+</body>
+</html>
